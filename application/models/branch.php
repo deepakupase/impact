@@ -6,17 +6,18 @@ class Branch extends CI_Model{
 		
 		static $tablename = 'branch';
 		static $tableid = 'branch_id';
+		
 		function find_by_id($id){
 			$tableid = self::$tableid;
 			$resultset = $this->db->get_where(self::$tablename,array($tableid=>$id),1);
 			if($resultset->num_rows()==1)
-				return array_shift($resultset->result());
+				return array_shift($resultset->result(get_class($this)));
 			return false;
 		}
 		
 		function find_all(){
 			$resultset = $this->db->get(self::$tablename);
-			return $resultset->result();
+			return $resultset->result(get_class($this));
 		}
 		
 		function save(){
