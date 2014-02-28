@@ -5,7 +5,7 @@ class Family_detail extends CI_Model{
 		var $alumni_id;
 		var $name_of_member;
 		var $relation_id;
-		var $dob;
+		var $occupation;
 		
 		
 		
